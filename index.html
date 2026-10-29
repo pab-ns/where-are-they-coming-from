@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Pablo Neyra">
+    <meta property="og:title" content="Where Are They Coming From?">
+    <meta name="description" content="Where do 2026 World Cup players come from? Explore the leagues and clubs behind 1,246 players, the split between players competing in their domestic league and those who play abroad, and what that says about a national team.">
+
+    <meta property="og:image" content="https://pab-ns.github.io/where-are-they-coming-from/img/wc-thumb.webp">
+    <meta property="og:url" content="https://pab-ns.github.io/where-are-they-coming-from">
+    <meta name="twitter:card" content="summary">
+    <meta property="og:site_name" content="Pablo Neyra">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://pab-ns.github.io/hello/img/favicon_io/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://pab-ns.github.io/hello/img/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://pab-ns.github.io/hello/img/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://pab-ns.github.io/hello/img/favicon_io/favicon-16x16.png">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="css/style.css">
+    <title>Where Are They Coming From? – FIFA World Cup 2026</title>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<section class="container mx-auto justify-center items-center py-10">
+  
+      <div class="max-w-5xl mx-auto text-center input-mobile-padding">
+
+                  <span class="font-mono uppercase text-xxs tracking-wide my-5 bg-pastelPink p-2 text-center mx-auto"> FIFA World Cup 2026</span>
+
+        <img src="img/wc-hero.webp" alt="" class="mx-auto my-10 w-full">
+        <div class="space-y-8">
+
+        <h1 class="font-franklin font-extrabold text-5xl uppercase tracking-widest leading-normal">Where are they coming from?</h1>
+        <br>
+        <p class="font-franklin text-xl leading-loose max-w-2xl mx-auto">The upcoming edition of the FIFA World Cup will be unlike anything we have seen before. Literally. With 48 nations in competition, it comes across as the largest tournament in history, spanning across three host nations and featuring 1,246 players. All in it with one goal: <br> <span class="font-serif font-bold italic text-2xl">World Champion</span>.</p>
+        </div>
+        <br><br>
+
+        <hr class="max-w-24 p-1 md:p-2 bg-pastelBlue mx-auto">
+      </div>
+</section>
+
+<!-- SECTION 2 - PLAYERS INTRO -->
+<section class="container mx-auto justify-center items-center pb-10">
+<div class="max-w-2xl mx-auto input-mobile-padding">
+        <img src="img/wc-players.webp" alt="" width="95%" class="mx-auto my-10">
+
+
+        <div class="space-y-8">
+            <h2 class="text-center md:text-left font-franklin font-extrabold text-2xl uppercase tracking-widest underline underline-offset-2 md:underline-offset-8 decoration-4 decoration-pastelPink">The Players, the Leagues, the Clubs</h2>
+
+        <p class="font-serif mx-auto text-left">
+When the tournament kicks off, players will come from 449 different clubs across 69 professional leagues in 71 countries. But not every league, nor club, will contribute equally. 
+<br><br>
+From the the world's top five leagues in 2025, according to the International Federation of Football History and Statistics (IFFHS) <i>(English Premier League, La Liga, Brazil's Brasileirão, Serie A and the Bundesliga)</i>, the English Premier League dominates the numbers with 200 players. Nearly one in six of everyone at the tournament. 
+<br><br>
+German Bundesliga follows with 108, roughly half as many. French Ligue 1 and Spanish La Liga, sit a little further back with 86 each. Italy Serie A, closes out the European podium with 71; while the Brasileirão adds 32.
+<br><br>
+Beyond the traditional power-house leagues, others have also emerged. With time and heavy investment, the Saudi Pro League (49) and Major League Soccer (48) have established themselves as suppliers of talent. They are attractive destinations for emerging players and for those looking for a different competition pace.
+</p>
+        </div>
+
+</div>
+</section>
+
+<!-- 2.1 - SUNBURST CHART -->
+<section class="container mx-auto mt-20 md:mt-0 font-mono font-normal">
+<div class="max-w-5xl mx-auto">
+   <!-- start -->
+ 
+   <!-- Breadcrumb -->
+
+    <div class="mx-auto flex flex-col items-center space-y-2">
+      <div class="text-xs">
+        <span id="bc-hint" class="text-center font-franklin text-xxs tracking-widest uppercase text-slate-400 py-3">Click a segment to drill down</span>
+      </div>
+    
+      <div class="text-sm">
+        <span id="bc-root" class="cursor-pointer text-blue-950 transition-opacity hover:opacity-60 uppercase font-semibold" onclick="goRoot()">All Players</span>
+        <span id="bc-sep1" class="hidden text-gray-300">&rsaquo;</span>
+        <span id="bc-league" class="hidden cursor-pointer font-semibold text-blue-950 transition-opacity hover:opacity-60"></span>
+        <span id="bc-sep2" class="hidden text-gray-300">&rsaquo;</span>
+        <span id="bc-club" class="hidden text-gray-500"></span>
+      </div>
+
+    </div>
+    
+ 
+   <!-- Chart -->
+   <div id="chart-area" class="relative flex flex-col items-center justify-center py-8 font-franklin">
+     <div id="sunburst-container" class="relative flex items-center justify-center">
+       <svg id="sunburst-svg" class="block"></svg>
+       <div class="pointer-events-none absolute left-1/2 top-1/2 w-40 -translate-x-1/2 -translate-y-1/2 text-center font-franklin">
+         <div id="center-num" class="text-4xl font-extrabold leading-none text-blue-950">1246</div>
+         <div id="center-label" class="mt-1.5 text-[0.65rem] uppercase leading-snug tracking-widest text-gray-500">Players</div>
+         <div id="center-sub" class="mt-1 text-xxs leading-snug text-gray-400 uppercase">48 nations &middot; 69 leagues</div>
+       </div>
+     </div>
+     <button id="back-btn" class="pointer-events-none mt-6 flex cursor-pointer items-center gap-2 font-sans text-[0.65rem] uppercase tracking-widest text-gray-400 opacity-0 transition-all hover:text-blue-950" onclick="goBack()">
+       <span class="flex h-4 w-4 items-center justify-center text-[0.6rem]">&larr;</span>
+       Back
+     </button>
+   </div>
+ 
+   <!-- Tooltip -->
+   <div id="tooltip-sun" class="pointer-events-none fixed z-50 hidden max-w-[260px] rounded border border-gray-200 bg-white px-4 py-3 font-sans text-black shadow-lg"></div>
+
+   <!-- end --> 
+</div>
+</section>
+
+<!-- 2.2 SUNBURST TEXT -->
+<div class="container max-w-2xl mx-auto space-y-5 mb-20 md:space-y-10 input-mobile-padding">
+<p class="font-serif">
+Looking closer at Europe's four major leagues, there's no surprise that the big clubs, with their diverse squads, lead the way. Manchester City supplies 19 players and Bayern Munich 18. Between them, they feed more than 25 national teams. Paris Saint-Germain and Arsenal follow closely (16 each), then Barcelona (15).
+<br><br>
+With diverse nationalities in these squads, there’s a real chance that when Germany faces Spain, or England takes on Brazil, many of the players squaring off on the pitch are teammates at club level, week in, week out.
+</p>
+        <hr class="max-w-24 p-1 md:p-2 bg-pastelPink mx-auto">
+
+</div>
+
+<!-- SECTION 3 - STAGE -->
+<section class="container mx-auto justify-center items-center pb-10">
+<div class="max-w-2xl mx-auto input-mobile-padding">
+        <img src="img/wc-stage.webp" alt="" width="95%" class="mx-auto my-10">
+
+        <div class="space-y-8">
+            <h2 class="text-center md:text-left font-franklin font-extrabold text-2xl uppercase tracking-widest underline underline-offset-2 md:underline-offset-8 decoration-4 decoration-pastelPink">home comfort or world stage?</h2>
+
+        <p class="font-serif">
+One of the most revealing statistics in any World Cup squad is the split between players competing in their domestic league and those who play abroad. It says something about the strength and the pull of a country's football pyramid.
+<br><br>
+For some nations, the best players <i>(or simply players)</i> never had to “leave” in search of competition. That is the case for England, Germany and Spain squads: players who play in their country, for their country. Others countries have to search six continents to find their team.
+<br><br>
+On one side are Saudi Arabia and Qatar, where 96% of both squads play at home. This could be a result of the investment that has kept, and attracted, talent to their leagues. England (81%) and Germany (73%) are similar with their local leagues simply being among the best in the world.
+<br><br>
+At the other end, six nations send 100% of their squad from clubs abroad: Cape Verde, Curaçao, DR Congo, Ivory Coast, Senegal and Uruguay. Players like Sadio Mané in Saudi Arabia, Franck Kessié at Al-Ahli and Federico Valverde at Real Madrid, sit on in this side of the spectrum.
+        </p>
+        </div>
+
+</div>
+</section>
+
+<!-- 3.2 CHART -->
+<section class="container mx-auto mb-20 mt-20 md:mt-0">
+<div class="max-w-5xl mx-auto">
+   <!-- start -->
+   <div class="mt-10">
+      <!-- Sort controls -->
+      <div class="flex justify-center flex-wrap gap-3 mb-6" id="domestic-controls">
+        <button data-sort="abroad" class="domestic-btn font-franklin text-xxs uppercase tracking-widest px-3 py-1.5 rounded-sm border cursor-pointer transition-colors">Sort by most abroad</button>
+        <button data-sort="domestic" class="domestic-btn font-franklin text-xxs uppercase tracking-widest px-3 py-1.5 rounded-sm border cursor-pointer transition-colors">Sort by most domestic</button>
+        <button data-sort="alpha" class="domestic-btn font-franklin text-xxs uppercase tracking-widest px-3 py-1.5 rounded-sm border cursor-pointer transition-colors">Alphabetical</button>
+      </div>
+      <!-- Chart -->
+      <div class="relative w-full" id="domestic-chart-box">
+        <canvas id="domestic-chart-canvas"></canvas>
+      </div>
+   </div>
+   <!-- end -->
+</div>
+</section>
+
+<hr class="max-w-24 p-1 md:p-2 bg-pastelPink mx-auto">
+
+<!-- 4.0 OUTRO -->
+<section class="container mx-auto my-10 mt-20 md:mt-20 input-mobile-padding">
+<div class="max-w-2xl mx-auto space-y-5 md:space-y-10">
+        <p class="font-serif leading-relaxed text-center">
+Ninety-six years. Twenty-three editions, and now, for the first time, the World Cup is bigger than anyone imagined it could be. Forty-eight nations take the world stage, each with a story of its own about how its squad, league and clubs are built. 
+<br><br>
+Some will arrive as heavy favourites. Others already know what it is to be on the big stage, and many debutants will be hungry to make a name for themselves.
+        </p>
+      </div>
+
+<img src="img/wc-illustrator.webp" width="25%" alt="" class="mx-auto mt-5 md:mt-20 object-cover filter contrast-125 saturate-50 mix-blend-multiply">
+
+</section>
+
+<!-- footer -->
+<section class="mx-auto text-center py-4 space-y-0 border-t-2 border-pastelPink">
+  <span class="font- font-bold tracking-widest uppercase hover:opacity-80 transition-all duration-200"> <a href="https://www.pneyra.work" target="_blank">Pablo Neyra</a></span>
+  <p class="text-xxs">© <span id="date">2026</span></p>
+      <script>
+    window.onload = function () {
+      var date = new Date();
+      document.getElementById("date").innerHTML = date.getFullYear();
+    };
+  </script>   
+</section> 
+
+<!--  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" defer></script>    
+  <script src="js/sunburst.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="js/league.js"></script>   
+
+</body>
+</html>
